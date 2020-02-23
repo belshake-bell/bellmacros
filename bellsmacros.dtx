@@ -289,44 +289,13 @@
 \fi
 %    \end{macrocode}
 % \subsection{\Environments}
-% \subsubsection{\file{theorem}依存のもの}
-%    \begin{macrocode}
-%%==============================================================================
-%% 環境定義(theorem依存)
-%%==============================================================================
-%    \end{macrocode}
-%    \begin{macrocode}
-\theorembodyfont{\normalfont}
-\theoremstyle{break}
-\newtheorem{@theory}{定理}
-\newtheorem{@definition}{定義}
-\newtheorem{@lemma}{補題}
-\theorempreskipamount\z@
-\theorempostskipamount\z@
-
-\newenvironment{theory}
-  {\begin{oframed}\begin{@theory}}
-  {\end{@theory}\end{oframed}}
-\newenvironment{definition}
-  {\begin{oframed}\begin{@definition}}
-  {\end{@definition}\end{oframed}}
-\newenvironment{lemma}
-  {\begin{oframed}\begin{@lemma}}
-  {\end{@lemma}\end{oframed}}
-\let\defi\definition
-\let\enddefi\enddefinition
-\let\theo\theory
-\let\endtheo\endtheory
-\let\theorem\theory
-\let\endtheorem\endtheory
-
-%    \end{macrocode}
 % \subsubsection{非依存のもの}
 %    \begin{macrocode}
 %%==============================================================================
 %% 環境定義
 %%==============================================================================
 %    \end{macrocode}
+% \begin{macro}{\bell@envtemplate}
 %    \begin{macrocode}
 \def\bell@envtemplate{%
   \setlength{\topsep}{\qu@rt\baselineskip}%
@@ -340,6 +309,8 @@
 }
 
 %    \end{macrocode}
+% \end{macro}
+% \begin{environment}{setsumei}
 %    \begin{macrocode}
 \newenvironment{setsumei}{%
   \begin{list}{\textgt{\inhibitglue ［説明］}}{%
@@ -351,6 +322,8 @@
 }
 
 %    \end{macrocode}
+% \end{environment}
+% \begin{environment}{NB}
 %    \begin{macrocode}
 \newenvironment{NB}{%
   \begingroup\par\begin{list}{N.B.}{%
@@ -363,6 +336,8 @@
 }
 
 %    \end{macrocode}
+% \end{environment}
+% \begin{environment}{chuui}
 %    \begin{macrocode}
 \newenvironment{chuui}{%
   \begingroup\par\begin{list}{\inhibitglue \textgt{［注意］}}{%
@@ -375,6 +350,8 @@
 }
 
 %    \end{macrocode}
+% \end{environment}
+% \begin{environment}{proof}
 %    \begin{macrocode}
 \newenvironment{proof}{%
   \begin{list}{\textgt{\inhibitglue ［証明］}}{%
@@ -385,6 +362,8 @@
 }
 
 %    \end{macrocode}
+% \end{environment}
+% \begin{environment}{Yodan}
 %    \begin{macrocode}
 \newenvironment{Yodan}{%
   \begingroup\par\begin{list}{\textgt{\inhibitglue ［余談］}}{%
@@ -397,8 +376,14 @@
 }
 
 %    \end{macrocode}
+% \end{environment}
+% \begin{macro}{\FGNsize}
 %    \begin{macrocode}
 \def\FGNsize{\small}
+%    \end{macrocode}
+% \end{macro}
+% \begin{macro}{\@FGN}
+%    \begin{macrocode}
 \def\@FGN{%
   \setlength{\leftmargin}{2\bell@zw}%
   \FGNsize
@@ -407,6 +392,8 @@
 }
 
 %    \end{macrocode}
+% \end{macro}
+% \begin{environment}{FGN}
 %    \begin{macrocode}
 \newenvironment{FGN}{%
   \begingroup\par\begin{list}{\textgt{\inhibitglue ［附言］}}{\@FGN}%
@@ -414,9 +401,19 @@
 }
 
 %    \end{macrocode}
+% \end{environment}
+% \begin{macro}{\c@FGNenumi}
 %    \begin{macrocode}
 \newcounter{FGNenumi}[subsection]
+%    \end{macrocode}
+% \end{macro}
+% \begin{macro}{\theFGNenumi}
+%    \begin{macrocode}
 \renewcommand{\theFGNenumi}{［附言\Roman{FGNenumi}］}
+%    \end{macrocode}
+% \end{macro}
+% \begin{environment}{FGNenum}
+%    \begin{macrocode}
 \newenvironment{FGNenum}[1][-1]{%
   \ifnum #1<\z@ \else \setcounter{FGNenumi}{#1}\fi
   \refstepcounter{FGNenumi}\par\vspace{.3\bell@zh}%
@@ -424,10 +421,20 @@
   \item}{\vspace{-\h@lf\topsep}\end{list}%
 }
 
+%    \end{macrocode}
+% \end{environment}
+% \begin{macro}{\FGNlabel}
+%    \begin{macrocode}
 \newcommand{\FGNlabel}[1]{\label{FGN:#1}}
+%    \end{macrocode}
+% \end{macro}
+% \begin{macro}{\FGNref}
+%    \begin{macrocode}
 \newcommand{\FGNref}[1]{\ref{FGN:#1}}
 
 %    \end{macrocode}
+% \end{macro}
+% \subsubsection{\file{framed}依存のもの}
 %    \begin{macrocode}
 %%==============================================================================
 %% 環境定義(framed依存)
@@ -465,6 +472,55 @@
 \renewenvironment{framed}% using default \FrameCommand
   {\MakeFramed{\advance\hsize-\width \FrameRestore}}%
   {\endMakeFramed}
+
+%    \end{macrocode}
+% \subsubsection{\file{theorem}，\file{framed}依存のもの}
+%    \begin{macrocode}
+%%==============================================================================
+%% 環境定義(theorem, framed依存)
+%%==============================================================================
+%    \end{macrocode}
+%    \begin{macrocode}
+\theorembodyfont{\normalfont}
+\theoremstyle{break}
+\newtheorem{@theory}{定理}
+\newtheorem{@definition}{定義}
+\newtheorem{@lemma}{補題}
+\theorempreskipamount\z@
+\theorempostskipamount\z@
+
+%    \end{macrocode}
+% \begin{environment}{theory}
+% 定理用の環境です．
+%    \begin{macrocode}
+\newenvironment{theory}
+  {\begin{oframed}\begin{@theory}}
+  {\end{@theory}\end{oframed}}
+%    \end{macrocode}
+% \end{environment}
+% \begin{environment}{definition}
+% 定義用の環境です．
+%    \begin{macrocode}
+\newenvironment{definition}
+  {\begin{oframed}\begin{@definition}}
+  {\end{@definition}\end{oframed}}
+%    \end{macrocode}
+% \end{environment}
+% \begin{environment}{lemma}
+% 補題用の環境です．
+%    \begin{macrocode}
+\newenvironment{lemma}
+  {\begin{oframed}\begin{@lemma}}
+  {\end{@lemma}\end{oframed}}
+%    \end{macrocode}
+% \end{environment}
+%    \begin{macrocode}
+\let\theo\theory
+\let\endtheo\endtheory
+\let\theorem\theory
+\let\endtheorem\endtheory
+\let\defi\definition
+\let\enddefi\enddefinition
 
 %    \end{macrocode}
 % \subsection{\Romans}
