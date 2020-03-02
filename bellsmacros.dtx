@@ -936,25 +936,25 @@
 %%==============================================================================
 %    \end{macrocode}
 %    \begin{macrocode}
-\newcommand{\chapref}[1]  {\prechaptername\ref{chap:#1}\postchaptername}
-\newcommand{\sectref}[1]  {\presectionname\ref{sect:#1}\postsectionname}
-\newcommand{\ssectref}[1]  {\ref{ssect:#1}}
+\newcommand{\chapref}[1]    {\prechaptername\ref{chap:#1}\postchaptername}
+\newcommand{\sectref}[1]    {\presectionname\ref{sect:#1}\postsectionname}
+\newcommand{\ssectref}[1]   {\ref{ssect:#1}}
 \newcommand{\sssectref}[1]  {\ref{sssect:#1}}
-\newcommand{\figref}[1]    {\figurename \ref{fig:#1}}
-\newcommand{\tblref}[1]    {\tablename \ref{tbl:#1}}
+\newcommand{\figref}[1]     {\figurename \ref{fig:#1}}
+\newcommand{\tblref}[1]     {\tablename \ref{tbl:#1}}
 \ifdefined\eqref
   \let\bell@orig@eqref\eqref
-  \renewrobustcmd{\eqref}[1]  {\bell@orig@eqref{eq:#1}}
+  \renewrobustcmd{\eqref}[1]{\bell@orig@eqref{eq:#1}}
 \else
   \newrobustcmd{\eqref}[1]  {\ref{eq:#1}}
 \fi
 \newcommand{\chaplabel}[1]  {\label{chap:#1}}
 \newcommand{\sectlabel}[1]  {\label{sect:#1}}
-\newcommand{\ssectlabel}[1]  {\label{ssect:#1}}
+\newcommand{\ssectlabel}[1] {\label{ssect:#1}}
 \newcommand{\sssectlabel}[1]{\label{sssect:#1}}
-\newcommand{\figlabel}[1]  {\label{fig:#1}}
-\newcommand{\tbllabel}[1]  {\label{tbl:#1}}
-\newcommand{\eqlabel}[1]  {\label{eq:#1}}
+\newcommand{\figlabel}[1]   {\label{fig:#1}}
+\newcommand{\tbllabel}[1]   {\label{tbl:#1}}
+\newcommand{\eqlabel}[1]    {\label{eq:#1}}
 
 %    \end{macrocode}
 % \subsubsection{\file{mathtools}依存のもの}
