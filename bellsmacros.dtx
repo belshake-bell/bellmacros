@@ -175,7 +175,8 @@
 % \NeedsTeXFormat{pLaTeX2e}
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesPackage{bellsmacros}
-  [2020/01/25 bell's (up)LaTeX macro set]
+  [2020/05/25 bell's (up)LaTeX macro set]
+% [2020/01/25 bell's (up)LaTeX macro set]
 % [2019/11/04 bell's (up)LaTeX macro set]
 %    \end{macrocode}
 % \subsection{\Omaginai}
@@ -310,11 +311,15 @@
 
 %    \end{macrocode}
 % \end{macro}
+% \begin{macro}{\bell@fsize@setsumei}
+\def\bell@fsize@setsumei{}
+% \end{macro}
 % \begin{environment}{setsumei}
 %    \begin{macrocode}
 \newenvironment{setsumei}{%
   \begin{list}{\textgt{\inhibitglue ［説明］}}{%
   \setlength{\leftmargin}{2\bell@zw}%
+  \bell@fsize@setsumei
   \bell@envtemplate
   \setlength{\rightmargin}{0\bell@zw}%
   }%
@@ -323,12 +328,15 @@
 
 %    \end{macrocode}
 % \end{environment}
+% \begin{macro}{\bell@fsize@NB}
+\def\bell@fsize@NB{\small}
+% \end{macro}
 % \begin{environment}{NB}
 %    \begin{macrocode}
 \newenvironment{NB}{%
   \begingroup\par\begin{list}{N.B.}{%
   \setlength{\leftmargin}{2\bell@zw}%
-  \small%
+  \bell@fsize@NB
   \bell@envtemplate
   \setlength{\rightmargin}{\leftmargin}%
   }%
@@ -337,12 +345,15 @@
 
 %    \end{macrocode}
 % \end{environment}
+% \begin{macro}{\bell@fsize@chuui}
+\def\bell@fsize@chuui{\small}
+% \end{macro}
 % \begin{environment}{chuui}
 %    \begin{macrocode}
 \newenvironment{chuui}{%
   \begingroup\par\begin{list}{\inhibitglue \textgt{［注意］}}{%
   \setlength{\leftmargin}{2\bell@zw}%
-  \small%
+  \bell@fsize@chuui
   \bell@envtemplate
   \setlength{\rightmargin}{\leftmargin}%
   }%
@@ -351,11 +362,15 @@
 
 %    \end{macrocode}
 % \end{environment}
+% \begin{macro}{\bell@fsize@proof}
+\def\bell@fsize@proof{}
+% \end{macro}
 % \begin{environment}{proof}
 %    \begin{macrocode}
 \newenvironment{proof}{%
   \begin{list}{\textgt{\inhibitglue ［証明］}}{%
   \setlength{\leftmargin}{1\bell@zw}%
+  \bell@fsize@proof
   \bell@envtemplate
   }\begin{proofleftbar}%
   \item}{\end{proofleftbar}\vspace{\h@lf\topsep}\end{list}%
@@ -363,12 +378,15 @@
 
 %    \end{macrocode}
 % \end{environment}
+% \begin{macro}{\bell@fsize@Yodan}
+\def\bell@fsize@Yodan{\small}
+% \end{macro}
 % \begin{environment}{Yodan}
 %    \begin{macrocode}
 \newenvironment{Yodan}{%
   \begingroup\par\begin{list}{\textgt{\inhibitglue ［余談］}}{%
   \setlength{\leftmargin}{2\bell@zw}%
-  \small%
+  \bell@fsize@Yodan
   \bell@envtemplate
   \setlength{\rightmargin}{\leftmargin}%
   }%
@@ -379,14 +397,14 @@
 % \end{environment}
 % \begin{macro}{\FGNsize}
 %    \begin{macrocode}
-\def\FGNsize{\small}
+\def\bell@fsize@FGN{\small}
 %    \end{macrocode}
 % \end{macro}
 % \begin{macro}{\@FGN}
 %    \begin{macrocode}
 \def\@FGN{%
   \setlength{\leftmargin}{2\bell@zw}%
-  \FGNsize
+  \bell@fsize@FGN
   \bell@envtemplate
   \setlength{\rightmargin}{\leftmargin}%
 }
