@@ -213,12 +213,18 @@
 %% ゴースト文字マクロの定義(bxghost依存)
 %%==============================================================================
 %    \end{macrocode}
+% \begin{macro}{\eghost}
+% 欧文ゴーストを出力します．
 %    \begin{macrocode}
 \def\eghost{\eghostguarded{}}
 %    \end{macrocode}
+% \end{macro}
+% \begin{macro}{\jghost}
+% 和文ゴーストを出力します．
 %    \begin{macrocode}
 \def\jghost{\jghostguarded{}}
 %    \end{macrocode}
+% \end{macro}
 %    \begin{macrocode}
 %%==============================================================================
 %% 定数の定義
@@ -827,6 +833,26 @@
 % \begin{macro}{\Laplace}
 %    \begin{macrocode}
 \newcommand{\Laplace}{\mathcal{L}}% Laplace変換演算子
+
+%    \end{macrocode}
+% \end{macro}
+% \begin{macro}{\cosec}
+% 余割関数(hyperbolic cosecant)です．
+% \LaTeX では\cmd{\csc}で定義されていますが，あまり使いませんよね？
+%    \begin{macrocode}
+\DeclareRobustCommand{\cosec}{\mathop{\operator@font cosec}\nolimits}
+%    \end{macrocode}
+% \end{macro}
+% \begin{macro}{\sech}
+% 双曲線正割関数(hyperbolic secant)です．
+%    \begin{macrocode}
+\DeclareRobustCommand{\sech}{\mathop{\operator@font sech}\nolimits}
+%    \end{macrocode}
+% \end{macro}
+% \begin{macro}{\cosech}
+% 双曲線余割関数(hyperbolic cosecant)です．
+%    \begin{macrocode}
+\DeclareRobustCommand{\cosech}{\mathop{\operator@font cosech}\nolimits}
 
 %    \end{macrocode}
 % \end{macro}
