@@ -203,7 +203,11 @@
 % \RequirePackage{pgfmath}
 \RequirePackage{tikz}
 \usetikzlibrary{calc,positioning,quotes}
-\RequirePackage{udline}
+%    \end{macrocode}
+% \changes{v1.5}{2022/10/27}
+%    {\file{udline}は必須ではないようにしました．}
+%    \begin{macrocode}
+% \RequirePackage{udline}% -bell 2022-10-27
 \RequirePackage{makeidx}
 
 
@@ -987,9 +991,14 @@
 %% udline関係
 %%==============================================================================
 %    \end{macrocode}
+% \changes{v1.5}{2022/10/27}
+%    {\file{udline}を必須ではないようにしたので，\cmd{\setulminsep}および\cmd{\setulsep}のコマンドは
+%     すでに読み込まれているときにのみ動作するように．}
 %    \begin{macrocode}
-\setulminsep{0.55ex}{0.55ex}
-\setulsep{0.0ex}
+\@ifpackageloaded{udline}{%
+  \setulminsep{0.55ex}{0.55ex}
+  \setulsep{0.0ex}
+  }{}
 %    \end{macrocode}
 % \subsection{\Nihongo}
 %    \begin{macrocode}
