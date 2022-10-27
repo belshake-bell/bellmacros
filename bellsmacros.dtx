@@ -475,9 +475,22 @@
 %% 環境定義(framed依存)
 %%==============================================================================
 %    \end{macrocode}
+% \begin{macro}{\c@exampleNumber}
+% 例番号を定義します．
 %    \begin{macrocode}
 \newcounter{exampleNumber}
+%    \end{macrocode}
+% \end{macro}
+% \begin{macro}{\theexampleNumber}
+% 例番号を「例$n$.」の形で出力します．
+%    \begin{macrocode}
 \def\theexampleNumber{例\arabic{exampleNumber}.}
+%    \end{macrocode}
+% \end{macro}
+% \begin{environment}{example}\oarg{text}\par
+% 例を書くための環境を定義します．
+% オプションで例に見出しを付けられます．
+%    \begin{macrocode}
 \newenvironment{example}[1][]{%
   \begin{oframed}
   \def\reseaved@a{#1}%
@@ -495,34 +508,61 @@
   \refstepcounter{exampleNumber}}%
   \item}{\end{list}\end{oframed}%
 }
+
+%    \end{macrocode}
+% \end{environment}
+% \begin{macro}{\EG}
+% \begin{macro}{\endEG}
+% \meta{example}環境を後方互換のため\meta{EG}という名前でも使えるようにします．
+%    \begin{macrocode}
 \let\EG\example
 \let\endEG\endexample
 
-
+%    \end{macrocode}
+% \end{macro}
+% \end{macro}
+% \begin{environment}{\proofleftbar}
+% 左側に縦線を引く，証明を記述するための環境です．
+%    \begin{macrocode}
 \newenvironment{proofleftbar}{%
   \def\FrameCommand{\hspace{1\bell@zw}\vrule\@width2pt\kern-2pt\relax}% 
   \MakeFramed {\advance\hsize-\width \FrameRestore}}%
   {\endMakeFramed}
-
+%    \end{macrocode}
+% \end{environment}
+% \begin{environment}{\framed}
+% 枠で囲む環境です．
+%    \begin{macrocode}
 \renewenvironment{framed}% using default \FrameCommand
   {\MakeFramed{\advance\hsize-\width \FrameRestore}}%
   {\endMakeFramed}
 
 %    \end{macrocode}
+% \end{environment}
 % \subsubsection{\file{theorem}，\file{framed}依存のもの}
 %    \begin{macrocode}
 %%==============================================================================
 %% 環境定義(theorem, framed依存)
 %%==============================================================================
 %    \end{macrocode}
+% 定理などの環境を整備します．
+% 
 %    \begin{macrocode}
 \theorembodyfont{\normalfont}
 \theoremstyle{break}
-\newtheorem{@theory}{定理}
-\newtheorem{@definition}{定義}
-\newtheorem{@lemma}{補題}
 \theorempreskipamount\z@
 \theorempostskipamount\z@
+%    \end{macrocode}
+%    \begin{macrocode}
+\newtheorem{@theory}{定理}
+%    \end{macrocode}
+%    \begin{macrocode}
+\newtheorem{@definition}{定義}
+%    \end{macrocode}
+%    \begin{macrocode}
+\newtheorem{@lemma}{補題}
+%    \end{macrocode}
+%    \begin{macrocode}
 
 %    \end{macrocode}
 % \begin{environment}{theory}
@@ -549,6 +589,10 @@
   {\end{@lemma}\end{oframed}}
 %    \end{macrocode}
 % \end{environment}
+% \begin{environment}{theo}
+% \begin{environment}{theorem}
+% \begin{environment}{defi}
+% 後方互換のためいくつかの略称を定義します．
 %    \begin{macrocode}
 \let\theo\theory
 \let\endtheo\endtheory
@@ -558,6 +602,9 @@
 \let\enddefi\enddefinition
 
 %    \end{macrocode}
+% \end{environment}
+% \end{environment}
+% \end{environment}
 % \subsection{\Romans}
 %    \begin{macrocode}
 %%==============================================================================
