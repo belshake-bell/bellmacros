@@ -51,11 +51,11 @@
 \def\TikZ{Ti\textsl{k}Z}
 \newcommand*{\Lcount}[1]{\textsl{\small#1}}
 \newcommand*{\Lopt}[1]{\textsf{#1}}
+\makeatletter
 \newcounter{@clineno}
 \def\mlineplus#1{\setcounter{@clineno}{\arabic{CodelineNo}}%
    \addtocounter{@clineno}{#1}\arabic{@clineno}}
-\makeatletter
-\DeclareRobustCommand{\cmd}[1]{\cs{\expandafter\cmd@to@cs\string#1}}
+\def\cmd#1{\cs{\expandafter\cmd@to@cs\string#1}}
 \def\cmd@to@cs#1#2{\char\number`#2\relax}
 \makeatother
 \DeclareRobustCommand{\cs}[1]{\texttt{\char`\\#1}}
@@ -175,7 +175,8 @@
 % \NeedsTeXFormat{pLaTeX2e}
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesPackage{bellsmacros}
-  [2020/10/21 bell's (up)LaTeX macro set]
+  [2022/10/27 bell's (up)LaTeX macro set version 1.5 alpha]
+% [2020/10/21 bell's (up)LaTeX macro set]
 % [2020/05/25 bell's (up)LaTeX macro set]
 % [2020/01/25 bell's (up)LaTeX macro set]
 % [2019/11/04 bell's (up)LaTeX macro set]
@@ -615,85 +616,183 @@
 %% ローマ数字(hyperref依存)
 %%==============================================================================
 %    \end{macrocode}
+% \begin{macro}{\Greak@Numberbox}
 %    \begin{macrocode}
 \DeclareRobustCommand{\Greak@Numberbox}[2]
   {\texorpdfstring{\eghostguarded{#1}}{#2}}
+%    \end{macrocode}
+% \end{macro}
+% \begin{macro}{\Gni}
+%    \begin{macrocode}
 \DeclareRobustCommand{\Gni}
   {\Greak@Numberbox{\textrm{I}}{I}}
+%    \end{macrocode}
+% \end{macro}
+% \begin{macro}{\Gni}
+%    \begin{macrocode}
 \DeclareRobustCommand{\Gnii}
   {\Greak@Numberbox{\textrm{I\nobreak\hspace{-0.1em}I}}
                    {II}}
+%    \end{macrocode}
+% \end{macro}
+% \begin{macro}{\Gni}
+%    \begin{macrocode}
 \DeclareRobustCommand{\Gniii}
   {\Greak@Numberbox{\textrm{I\nobreak\hspace{-0.1em}I\nobreak\hspace{-0.1em}I}}
                    {III}}
+%    \end{macrocode}
+% \end{macro}
+% \begin{macro}{\Gni}
+%    \begin{macrocode}
 \DeclareRobustCommand{\Gniv}
   {\Greak@Numberbox{\textrm{I\nobreak\hspace{-0.1em}V}}
                    {IV}}
+%    \end{macrocode}
+% \end{macro}
+% \begin{macro}{\Gni}
+%    \begin{macrocode}
 \DeclareRobustCommand{\Gnv} 
   {\Greak@Numberbox{\textrm{V}}
                    {V}}
+%    \end{macrocode}
+% \end{macro}
+% \begin{macro}{\Gni}
+%    \begin{macrocode}
 \DeclareRobustCommand{\Gnvi}
   {\Greak@Numberbox{\textrm{V\nobreak\hspace{-0.1em}I}}
                    {VI}}
+%    \end{macrocode}
+% \end{macro}
+% \begin{macro}{\Gni}
+%    \begin{macrocode}
 \DeclareRobustCommand{\Gnvii}
   {\Greak@Numberbox{\textrm{V\nobreak\hspace{-0.1em}I\nobreak\hspace{-0.1em}I}}
                    {VII}}
+%    \end{macrocode}
+% \end{macro}
+% \begin{macro}{\Gni}
+%    \begin{macrocode}
 \DeclareRobustCommand{\Gnviii}
   {\Greak@Numberbox{\textrm{V\nobreak\hspace{-0.1em}I\nobreak\hspace{-0.1em}I%
                               \nobreak\hspace{-0.1em}I}}
                    {VIII}}
+%    \end{macrocode}
+% \end{macro}
+% \begin{macro}{\Gni}
+%    \begin{macrocode}
 \DeclareRobustCommand{\Gnix}
   {\Greak@Numberbox{\textrm{I\nobreak\hspace{-0.1em}X}}
                    {IX}}
+%    \end{macrocode}
+% \end{macro}
+% \begin{macro}{\Gni}
+%    \begin{macrocode}
 \DeclareRobustCommand{\Gnx} 
   {\Greak@Numberbox{\textrm{X}}
                    {X}}
+%    \end{macrocode}
+% \end{macro}
+% \begin{macro}{\Gni}
+%    \begin{macrocode}
 \DeclareRobustCommand{\Gnxi}
   {\Greak@Numberbox{\textrm{X\nobreak\hspace{-0.1em}I}}
                    {XI}}
+%    \end{macrocode}
+% \end{macro}
+% \begin{macro}{\Gni}
+%    \begin{macrocode}
 \DeclareRobustCommand{\Gnxii}
   {\Greak@Numberbox{\textrm{X\nobreak\hspace{-0.1em}I\nobreak\hspace{-0.1em}I}}
                    {XII}}
 
+%    \end{macrocode}
+% \end{macro}
+% \begin{macro}{\Gni}
+%    \begin{macrocode}
 \DeclareRobustCommand{\gni}
   {\Greak@Numberbox{\textrm{i}}
                    {i}}
+%    \end{macrocode}
+% \end{macro}
+% \begin{macro}{\Gni}
+%    \begin{macrocode}
 \DeclareRobustCommand{\gnii}
   {\Greak@Numberbox{\textrm{i\nobreak\hspace{-0.1em}i}}
                    {ii}}
+%    \end{macrocode}
+% \end{macro}
+% \begin{macro}{\Gni}
+%    \begin{macrocode}
 \DeclareRobustCommand{\gniii}
   {\Greak@Numberbox{\textrm{i\nobreak\hspace{-0.1em}i\nobreak\hspace{-0.1em}i}}
                    {iii}}
+%    \end{macrocode}
+% \end{macro}
+% \begin{macro}{\Gni}
+%    \begin{macrocode}
 \DeclareRobustCommand{\gniv}
   {\Greak@Numberbox{\textrm{i\nobreak\hspace{-0.1em}v}}
                    {iv}}
+%    \end{macrocode}
+% \end{macro}
+% \begin{macro}{\Gni}
+%    \begin{macrocode}
 \DeclareRobustCommand{\gnv}
   {\Greak@Numberbox{\textrm{v}}
                    {v}}
+%    \end{macrocode}
+% \end{macro}
+% \begin{macro}{\Gni}
+%    \begin{macrocode}
 \DeclareRobustCommand{\gnvi}
   {\Greak@Numberbox{\textrm{v\nobreak\hspace{-0.1em}i}}
                    {vi}}
+%    \end{macrocode}
+% \end{macro}
+% \begin{macro}{\Gni}
+%    \begin{macrocode}
 \DeclareRobustCommand{\gnvii}
   {\Greak@Numberbox{\textrm{v\nobreak\hspace{-0.1em}i\nobreak\hspace{-0.1em}i}}
                    {vii}}
+%    \end{macrocode}
+% \end{macro}
+% \begin{macro}{\Gni}
+%    \begin{macrocode}
 \DeclareRobustCommand{\gnviii}
   {\Greak@Numberbox{\textrm{v\nobreak\hspace{-0.1em}i\nobreak\hspace{-0.1em}i%
                               \nobreak\hspace{-0.1em}i}}
                    {viii}}
+%    \end{macrocode}
+% \end{macro}
+% \begin{macro}{\Gni}
+%    \begin{macrocode}
 \DeclareRobustCommand{\gnix}
   {\Greak@Numberbox{\textrm{i\nobreak\hspace{-0.1em}x}}
                    {ix}}
+%    \end{macrocode}
+% \end{macro}
+% \begin{macro}{\Gni}
+%    \begin{macrocode}
 \DeclareRobustCommand{\gnx}
   {\Greak@Numberbox{\textrm{x}}
                    {x}}
+%    \end{macrocode}
+% \end{macro}
+% \begin{macro}{\Gni}
+%    \begin{macrocode}
 \DeclareRobustCommand{\gnxi}
   {\Greak@Numberbox{\textrm{x\nobreak\hspace{-0.1em}i}}
                    {xi}}
+%    \end{macrocode}
+% \end{macro}
+% \begin{macro}{\Gni}
+%    \begin{macrocode}
 \DeclareRobustCommand{\gnxii}
   {\Greak@Numberbox{\textrm{x\nobreak\hspace{-0.1em}i\nobreak\hspace{-0.1em}i}}
                    {xii}}
 
 %    \end{macrocode}
+% \end{macro}
 % \subsection{\Arrows}
 %    \begin{macrocode}
 %%==============================================================================
@@ -994,6 +1093,8 @@
 % \changes{v1.5}{2022/10/27}
 %    {\file{udline}を必須ではないようにしたので，\cmd{\setulminsep}および\cmd{\setulsep}のコマンドは
 %     すでに読み込まれているときにのみ動作するように．}
+% \file{udline}を必須ではないようにしたので，\cmd{\setulminsep}および\cmd{\setulsep}のコマンドは
+% すでに読み込まれているときにのみ動作するように．
 %    \begin{macrocode}
 \@ifpackageloaded{udline}{%
   \setulminsep{0.55ex}{0.55ex}
