@@ -4,9 +4,9 @@ DOCTARGET = bellsmacros
 PDFTARGET = bellsmacros.pdf
 DVITARGET = bellsmacros.dvi
 
+all: $(STRIPTARGET) $(PDFTARGET)
 default: $(STRIPTARGET) $(DVITARGET)
 strip: $(STRIPTARGET)
-all: $(STRIPTARGET) $(PDFTARGET)
 
 bellsmacros.sty: bellsmacros.dtx
 	pdflatex bellsmacros.ins
